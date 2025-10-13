@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title> Основа </title>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+      <link
+      rel="stylesheet"
+      href="css/style.css"
+    />
+    <link rel="icon" href="img/headlogo.webp" type="image/png"/>
+   </head>
+   <body>
+      <header id = "header" class="header">
+        <div class="overlay">
+          <h1 id = "up" class="header-title"></h1>
+        </div>
+      </header>
+       <header class = "second-header"> 
+        <div class = "second-overlay">
+            <h1 class = "second-header-title"> Главное - в основе </h1>
+        </div>
+    </header>
+     <header class = "navigation"> 
+            <nav > 
+                <ul>
+                    <li> <a href = "index.html"> Главная</a></li>
+                    <li> <a href = "about.html">О нас</a></li>
+                    <li> <a href = "index3.html">Задача</a></li>
+                     <li> <a href = "passport.html">Паспорт</a></li> 
+                    <li> <a href = "contacts.html#header" target = "_self" class="active"><u>Ваши пожелания</u></a></li>
+                </ul>
+                
+            </nav>
+   </header>
+
+    <h2 class = "course-title"> Отправляйте нам свои личные данные</h3>
+
+    <form class = "form" action = 'https://www.google.ru/?hl=ru' method = "get" target = "_blank">
+
+        <label for = "lastname"> Фамилия </label><input type = "text" name = "surname" required>
+        <label for = "name"> Имя </label><input type = "text" id = "name">
+        <label for = "groupnumber"> Номер группы </label><input type = "number" id = "groupnumber">
+        <label for = "number"> Номер телефона </label><input type = "number" id = "number">
+        <label for = "email"> E-mail </label><input type = "email" id = "email">
+        <label for = "date"> Дата отправки </label><input type = "date" id = "data">
+        <button type = "submit"> Отправить данные </button>
+    
+    <h2 class="course-title">Оставьте отзыв или сделайте заказ</h2>
+    <form class="form" action="https://www.google.ru/?hl=ru" method="get" target="_blank">
+    <label for="product">Продукт / услуга</label>
+    <input type="text" id="product" name="product" value="Пример товара">
+
+    <label for="quantity">Количество</label>
+    <input type="number" id="quantity" name="quantity" value="1">
+
+    <label>Выберите вариант доставки</label>
+    <input type="radio" id="delivery1" name="delivery" value="Самовывоз" checked>
+    <label for="delivery1">Самовывоз</label>
+    <input type="radio" id="delivery2" name="delivery" value="Доставка">
+    <label for="delivery2">Доставка</label>
+
+    <label>Дополнительные опции</label>
+    <input type="checkbox" id="gift" name="gift" checked>
+    <label for="gift">Подарочная упаковка</label>
+    <input type="checkbox" id="priority" name="priority">
+    <label for="priority">Приоритетная обработка</label>
+
+    <label for="feedback">Комментарий / отзыв</label>
+    <input type="text" id="feedback" name="feedback" value="Отзыв по умолчанию">
+
+    <label for="visitdate">Дата визита / заказа</label>
+    <input type="date" id="visitdate" name="visitdate">
+
+    <label for="password">Пароль для подтверждения</label>
+    <input type="password" id="password" name="password" value="1234">
+
+    <input type="hidden" name="hiddeninfo" value="секретные данные">
+
+    <button type="submit">Отправить форму</button>
+</form>

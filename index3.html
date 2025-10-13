@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Решение алгоритмической задачи</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Решение алгоритмической задачи</h1>
+        
+        <div class="description">
+            <p><strong>Задача:</strong> Разменять денежную сумму на купюры 500, 100, 10 рублей и монеты 2 рубля, если это возможно.</p>
+            <p>Алгоритм пытается разменять сумму, начиная с самых крупных купюр. Если сумма не может быть разменяна (например, содержит нечетное количество рублей), будет показано сообщение об ошибке.</p>
+        </div>
+        
+        <div class="input-section">
+            <label for="amount">Введите сумму для размена (в рублях):</label>
+            <input type="number" id="amount" min="2" step="1" placeholder="Например: 1234">
+        </div>
+        
+        <button id="calculate">Разменять сумму</button>
+        
+        <div id="result" class="result">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('calculate').addEventListener('click', function() {
+            const amountInput = document.getElementById('amount');
+            const amount = parseInt(amountInput.value);
+            const resultDiv = document.getElementById('result');
+            
+            // Очистка предыдущего результата
+            resultDiv.innerHTML = '';
+            resultDiv.className = 'result';
+            
+            // Проверка ввода
+            if (isNaN(amount) || amount < 2) {
+                resultDiv.innerHTML = '<p>Пожалуйста, введите корректную сумму (не менее 2 рублей).</p>';
+                resultDiv.className = 'result error';
+                resultDiv.style.display = 'block';
+                return;
+            }
+            
+            // Проверка возможности размена (сумма должна быть четной)
+            if (amount % 2 !== 0) {
+                resultDiv.innerHTML = '<p>Невозможно разменять данную сумму. Сумма должна быть четной, так как минимальная монета - 2 рубля.</p>';
+                resultDiv.className = 'result error';
+                resultDiv.style.display = 'block';
+                return;
+            }
+            
+            // Алгоритм размена
+            let remainingAmount = amount;
+            const denominations = [
+                { value: 500, name: '500 рублей', className: 'denomination-500' },
+                { value: 100, name: '100 рублей', className: 'denomination-100' },
+                { value: 10, name: '10 рублей', className: 'denomination-10' },
+                { value: 2, name: '2 рубля', className: 'denomination-2' }
+            ];
+            
+            const result = {};
+            
+            for (const denom of denominations) {
+                result[denom.value] = Math.floor(remainingAmount / denom.value);
+                remainingAmount %= denom.value;
+            }
+            
+            // Если осталась какая-то сумма, которую нельзя разменять
+            if (remainingAmount > 0) {
+                resultDiv.innerHTML = '<p>Невозможно разменять данную сумму имеющимися купюрами и монетами.</p>';
+                resultDiv.className = 'result error';
+                resultDiv.style.display = 'block';
+                return;
+            }
+            
+            // Отображение результата
+            let resultHTML = '<h3>Результат размена:</h3>';
+            
+            for (const denom of denominations) {
+                if (result[denom.value] > 0) {
+                    resultHTML += `
+                    <div class="denomination">
+                        <div class="denomination-icon ${denom.className}">${denom.value}</div>
+                        <div class="denomination-info">
+                            <div>${denom.name}</div>
+                            <div class="denomination-count">${result[denom.value]} шт.</div>
+                        </div>
+                    </div>
+                    `;
+                }
+            }
+            
+            resultHTML += `<div class="total">Итого: ${amount} рублей</div>`;
+            
+            resultDiv.innerHTML = resultHTML;
+            resultDiv.className = 'result success';
+            resultDiv.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
