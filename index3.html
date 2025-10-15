@@ -31,11 +31,11 @@
             const amount = parseInt(amountInput.value);
             const resultDiv = document.getElementById('result');
             
-            // Очистка предыдущего результата
+            
             resultDiv.innerHTML = '';
             resultDiv.className = 'result';
             
-            // Проверка ввода
+            
             if (isNaN(amount) || amount < 2) {
                 resultDiv.innerHTML = '<p>Пожалуйста, введите корректную сумму (не менее 2 рублей).</p>';
                 resultDiv.className = 'result error';
@@ -43,7 +43,7 @@
                 return;
             }
             
-            // Проверка возможности размена (сумма должна быть четной)
+            
             if (amount % 2 !== 0) {
                 resultDiv.innerHTML = '<p>Невозможно разменять данную сумму. Сумма должна быть четной, так как минимальная монета - 2 рубля.</p>';
                 resultDiv.className = 'result error';
@@ -51,7 +51,7 @@
                 return;
             }
             
-            // Алгоритм размена
+           
             let remainingAmount = amount;
             const denominations = [
                 { value: 500, name: '500 рублей', className: 'denomination-500' },
@@ -67,7 +67,7 @@
                 remainingAmount %= denom.value;
             }
             
-            // Если осталась какая-то сумма, которую нельзя разменять
+            
             if (remainingAmount > 0) {
                 resultDiv.innerHTML = '<p>Невозможно разменять данную сумму имеющимися купюрами и монетами.</p>';
                 resultDiv.className = 'result error';
@@ -75,7 +75,7 @@
                 return;
             }
             
-            // Отображение результата
+            
             let resultHTML = '<h3>Результат размена:</h3>';
             
             for (const denom of denominations) {
@@ -100,4 +100,5 @@
         });
     </script>
 </body>
+
 </html>
