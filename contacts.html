@@ -35,48 +35,53 @@
             </nav>
    </header>
 
-    <h2 class = "course-title"> Отправляйте нам свои личные данные</h3>
+    <h2 class = "course-title"> Отправляйте нам свои личные данные</h2>
 
-    <form class = "form" action = 'https://www.google.ru/?hl=ru' method = "get" target = "_blank">
-
-        <label for = "lastname"> Фамилия </label><input type = "text" name = "surname" required>
-        <label for = "name"> Имя </label><input type = "text" id = "name">
-        <label for = "groupnumber"> Номер группы </label><input type = "number" id = "groupnumber">
-        <label for = "number"> Номер телефона </label><input type = "number" id = "number">
-        <label for = "email"> E-mail </label><input type = "email" id = "email">
-        <label for = "date"> Дата отправки </label><input type = "date" id = "data">
+    <form class = "form" action = 'https://ya.ru/?npr=1' method = "get" target = "_blank">
+        <p>Фамилия:<input type = "text" name = "last_name" value="Петров" required> </p>
+        <p>Имя <input type = "text" id = "name" name="first_name" size="30" value="Иван"></p>
+        <p> Номер группы <input type = "number" id = "groupnumber" name="group_number" value="0"> </p>
+        <p>Мобильный телефон <input type="tel" id="mobile" name="mobile_phone" value="+7(999)888-77-21"></p>
+        <p>E-mail <input type = "email" id = "email" name="email" value="12345@yandex.ru"></p>
+        <p>Дата отправки:<input type="date" name="user_date"  value='2025-10-22'> </p>
         <button type = "submit"> Отправить данные </button>
-    
-    <h2 class="course-title">Оставьте отзыв или сделайте заказ</h2>
-    <form class="form" action="https://www.google.ru/?hl=ru" method="get" target="_blank">
-    <label for="product">Продукт / услуга</label>
-    <input type="text" id="product" name="product" value="Пример товара">
 
-    <label for="quantity">Количество</label>
-    <input type="number" id="quantity" name="quantity" value="1">
+    </form>
+   <h2 class="course-title">Оставьте отзыв или сделайте заказ</h2>
 
-    <label>Выберите вариант доставки</label>
-    <input type="radio" id="delivery1" name="delivery" value="Самовывоз" checked>
-    <label for="delivery1">Самовывоз</label>
-    <input type="radio" id="delivery2" name="delivery" value="Доставка">
-    <label for="delivery2">Доставка</label>
+<form class="form" action="https://ya.ru/?npr=1" method="get" target="_blank">
+  <p>Продукт / услуга: <input type="text" name="product" value="Доставка" required></p>
+  <p>Количество: <input type="number" id="quantity" name="quantity" value="1"></p>
 
-    <label>Дополнительные опции</label>
-    <input type="checkbox" id="gift" name="gift" checked>
-    <label for="gift">Подарочная упаковка</label>
-    <input type="checkbox" id="priority" name="priority">
-    <label for="priority">Приоритетная обработка</label>
+  <label class="form-label">Выберите вариант доставки:</label>
+  <div class="radio-group">
+    <label>
+      <input type="radio" id="delivery1" name="delivery" value="Самовывоз" checked>
+      Самовывоз
+    </label>
+    <label>
+      <input type="radio" id="delivery2" name="delivery" value="Доставка">
+      Доставка
+    </label>
+  </div>
 
-    <label for="feedback">Комментарий / отзыв</label>
-    <input type="text" id="feedback" name="feedback" value="Отзыв по умолчанию">
+  <label class="form-label">Дополнительные опции:</label>
+  <div class="checkbox-group">
+    <label>
+      <input type="checkbox" id="gift" name="gift" checked>
+      Подарочная упаковка
+    </label>
+    <label>
+      <input type="checkbox" id="priority" name="priority">
+      Приоритетная обработка
+    </label>
+  </div>
 
-    <label for="visitdate">Дата визита / заказа</label>
-    <input type="date" id="visitdate" name="visitdate">
+  <p>Комментарий / отзыв: <input type="text" id="feedback" name="feedback" value="Отзыв по умолчанию"></p>
+  <p>Дата визита / заказа: <input type="date" id="visitdate" name="visitdate"></p>
+  <p>Пароль для подтверждения: <input type="password" id="password" name="password" value="1234"></p>
 
-    <label for="password">Пароль для подтверждения</label>
-    <input type="password" id="password" name="password" value="1234">
+  <input type="hidden" name="hiddeninfo" value="секретные данные">
 
-    <input type="hidden" name="hiddeninfo" value="секретные данные">
-
-    <button type="submit">Отправить форму</button>
+  <button type="submit">Отправить форму</button>
 </form>
